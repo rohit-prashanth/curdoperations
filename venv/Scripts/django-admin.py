@@ -1,4 +1,4 @@
-#!c:\users\rk21155\pycharmprojects\curd_models\venv\scripts\python.exe
+#!C:\Users\rohit\PycharmProjects\curd-operations\curdoperations\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

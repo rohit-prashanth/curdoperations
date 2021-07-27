@@ -12,24 +12,38 @@
     <h1>
         Curd Operations!
     </h1>
+    <br><br>
+
+     {% if messages %}
+    {% for msg in messages %}
+      <span style="color:blue;">
+        {{msg}}
+      </span>
+    {% endfor %}
+  {% endif %}
 </center>
 
 <br><br><br>
 
+
+
 <div class="container">
   <div class="row ">
     <div class="col ">
-
+        <center>
              <form action="#" method="POST">
                  {% csrf_token %}
                   <table>
-                      {{form.as_table}}
+                      {{form}}
                   </table>
                  <button type="submit" class="btn btn-primary">Submit</button>
              </form>
+            </center>
     </div>
 
-    <div class="col ">
+
+    <div class="col">
+        <center>
         <table class="table">
   <thead>
     <tr>
@@ -50,13 +64,20 @@
       <td>{{d.age}}</td>
       <td>{{d.gender}}</td>
       <td>{{d.email}}</td>
-      <td> <a href="{% url 'delete_data' d.id %}" class="btn btn-danger">Delete</a>
-            <button type="button" class="btn btn-warning">Edit</button></td>
+      <td>
+          <a class="btn btn-warning " href="{% url 'update' d.id %}" role="button">Edit</a>
+          <form action="{% url 'delete' d.id %}" method="post">
+              {% csrf_token %}
+              <input type="submit" value="Delete" class="btn btn-danger ">
+          </form>
+
+          </td>
     </tr>
     {% endfor %}
   {% endif %}
   </tbody>
 </table>
+            </center>
     </div>
   </div>
 </div>

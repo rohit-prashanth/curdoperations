@@ -20,5 +20,7 @@ from curd import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.curdop),
-    path('delete/<int:id>/',views.delete_data)
+    path('delete/<int:id>/',views.delete_data,name='delete'),
+    path('update/<int:id>/', views.update_data, name='update'),
+
 ]
